@@ -28,7 +28,10 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/svgs/brands/*",
+              "src/assets/svgs/regular/*",
+              "src/assets/svgs/solid/*"
             ],
             "styles": [
               "src/styles.scss"
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "rex": {
+      "projectType": "library",
+      "root": "projects/rex",
+      "sourceRoot": "projects/rex/src",
+      "prefix": "rex",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rex/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rex/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rex/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rex/src/test.ts",
+            "tsConfig": "projects/rex/tsconfig.spec.json",
+            "karmaConfig": "projects/rex/karma.conf.js"
           }
         }
       }

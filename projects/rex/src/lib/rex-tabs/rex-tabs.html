@@ -1,0 +1,11 @@
+<ul class="rex-tabs-title" [style.justifyContent]="tabsAlignment">
+  <li [class.active]="i === selectedTabIndex" *ngFor="let tab of tabs; let i = index" (click)="selectTab(i)">
+    <ng-container *ngIf="!tab.headerTemplate">
+      <span class="rex-tabs-title-left-icon" *ngIf="tab.icon && tab.iconPosition === 'left'"><img [src]="tab.icon"></span>
+      <span>{{tab.title}}</span>
+      <span class="rex-tabs-title-right-icon" *ngIf="tab.icon && tab.iconPosition === 'right'"><img [src]="tab.icon"></span>
+    </ng-container>
+    <ng-container *ngTemplateOutlet="tab.headerTemplate"></ng-container>
+  </li>
+</ul>
+<ng-content></ng-content>
